@@ -1,13 +1,12 @@
-type PanelProps = {};
+type PanelProps =
+  | { collapsable: true; defaultCollpsed?: boolean }
+  //| { collapsable: true; defaultCollpsed?: true }
+  | { collapsable?: never; defaultCollpsed?: never };
 
 export function Panel(props: PanelProps) {
   return <pre>{JSON.stringify(props)}</pre>;
 }
 
 function DebugWhileDeveloping() {
-  return (
-    <>
-      Debug While Developing
-    </>
-  );
+  return <Panel collapsable defaultCollpsed={false}  />;
 }
